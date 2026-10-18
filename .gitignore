@@ -22,3 +22,6 @@ Thumbs.db
 # Editor junk
 .vscode/
 *.swp
+
+# Windows download metadata
+*:Zone.Identifier
