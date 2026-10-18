@@ -90,6 +90,13 @@ Each module in this codebase maps to a specific, published limitation in quantum
 
 ## Project Structure
 
+```
+include/    C++20 header-only core modules (solver, filters, screeners, constraints)
+src/        Entry points: backtest replay, live engine, CUDA kernel (untested)
+python/     Binance live feed, shared memory bridge, paper trade executor, charting
+assets/     Architecture diagram and verified result charts
+```
+
 ## Honest Limitations
 
 - Backtest uses synthetic LOBSTER-schema order flow (Poisson process generator); real Databento/LOBSTER historical data integration is identified future work.
