@@ -11,6 +11,20 @@
 
 ---
 
+## Table of Contents
+
+- [System Architecture](#system-architecture)
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [Quantum-Inspired, Not Quantum](#quantum-inspired-not-quantum)
+- [Key Results](#key-results-verified-real-data)
+- [Results](#results)
+- [The 21 Research Gaps](#the-21-research-gaps)
+- [Research Foundation](#research-foundation)
+- [Project Structure](#project-structure)
+- [Honest Limitations](#honest-limitations)
+- [License](#license)
+
 ## System Architecture
 
 ![System Architecture](assets/architecture_diagram.png)
@@ -22,6 +36,54 @@ Live market data streams from Binance over WebSocket, passes through a zero-copy
 This project implements a digital **Quantum-Inspired Simulated Bifurcation (bSB) solver** that classically replaces theoretical gate-model quantum portfolio optimization. It synthesizes fixes for 21 distinct limitations identified across seven published quantum finance papers into a single, working, live-data pipeline.
 
 **This is NOT a machine learning project.** There is no training phase, no labeled data, no loss function, and no learned model. It is a real-time numerical optimization engine that solves exact fractional Sharpe-ratio maximization using classical simulation of bifurcation dynamics — operations research, not statistical learning.
+
+## Quick Start
+
+### Prerequisites
+
+- CMake 3.20+
+- C++20 compiler (g++ or clang++)
+- Eigen3
+- OpenMP
+- Python 3.12 with pip
+
+### Build the C++ engine
+
+```bash
+mkdir -p build && cd build
+cmake ..
+make
+cd ..
+```
+
+This produces two binaries: `build/backtest_engine` and `build/live_engine`.
+
+### Run a backtest (synthetic LOBSTER-schema data)
+
+```bash
+./build/backtest_engine data
+```
+
+Streams per-event solve metrics directly to the terminal: total latency, Dinkelbach iteration count, active asset count after screening, and a breakdown by pipeline stage.
+
+### Run the live demo (two terminals required)
+
+**Terminal 1** (start first — creates the shared memory segment):
+
+```bash
+cd python
+python3 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+python3 binance_live_feed.py
+```
+
+**Terminal 2** (start only after Terminal 1 is running):
+
+```bash
+./build/live_engine
+```
+
+Shut down in reverse order: Ctrl+C in Terminal 1 first, then Terminal 2.
 
 ## Quantum-Inspired, Not Quantum
 
