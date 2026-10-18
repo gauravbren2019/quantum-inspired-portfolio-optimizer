@@ -1,0 +1,24 @@
+# Compiled binaries
+*.o
+*.obj
+*.exe
+live_engine
+build/
+cmake-build-*/
+
+# Large data files - not uploaded, see README for regeneration instructions
+data/
+
+# Python
+__pycache__/
+*.pyc
+venv/
+*/venv/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# Editor junk
+.vscode/
+*.swp
