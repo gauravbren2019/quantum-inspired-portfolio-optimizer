@@ -167,6 +167,16 @@ assets/     Architecture diagram and verified result charts
 - Live demo uses a fixed 10-asset liquid universe; the 500-to-30 screener is exercised in backtest.
 - Gaps relating to physical qubit hardware (chaining, precision bucketing) are not "solved" — they are inapplicable, because no quantum hardware is used. This distinction is deliberate.
 
+## Contributors
+
+- **Gaurav** ([@gauravbren2019](https://github.com/gauravbren2019)) — System architecture, C++20 bSB solver implementation, live Binance integration, backtest pipeline.
+- **Abhishek Girish** ([@Abhishek-Girish00](https://github.com/Abhishek-Girish00)) — Research gap mapping and analysis across the seven cited quantum finance papers.
+
+## Contributors
+
+- **Gaurav** — System architecture, C++20 bSB solver implementation, live Binance integration, backtest pipeline
+- **Abhishek** ([@Abhishek-Girish00](https://github.com/Abhishek-Girish00)) — Research gap mapping and analysis across the seven cited quantum finance papers
+
 ## License
 
 MIT
